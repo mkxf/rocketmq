@@ -18,6 +18,7 @@ package org.apache.rocketmq.common;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+
 import org.apache.rocketmq.common.annotation.ImportantField;
 import org.apache.rocketmq.common.constant.LoggerName;
 import org.apache.rocketmq.common.constant.PermName;
@@ -28,9 +29,14 @@ import org.apache.rocketmq.remoting.common.RemotingUtil;
 public class BrokerConfig {
     private static final InternalLogger log = InternalLoggerFactory.getLogger(LoggerName.COMMON_LOGGER_NAME);
 
-    private String rocketmqHome = System.getProperty(MixAll.ROCKETMQ_HOME_PROPERTY, System.getenv(MixAll.ROCKETMQ_HOME_ENV));
+    private String rocketmqHome = "/Users/mk/work/workspaceMy/rocketmq/distribution";
+    // private String rocketmqHome = System.getProperty(MixAll.ROCKETMQ_HOME_PROPERTY,
+    // System.getenv(MixAll.ROCKETMQ_HOME_ENV));
     @ImportantField
-    private String namesrvAddr = System.getProperty(MixAll.NAMESRV_ADDR_PROPERTY, System.getenv(MixAll.NAMESRV_ADDR_ENV));
+    private String namesrvAddr = "127.0.0.1:9876";
+    //    private String rocketmqHome = System.getProperty(MixAll.ROCKETMQ_HOME_PROPERTY, System.getenv(MixAll.ROCKETMQ_HOME_ENV));
+    //    @ImportantField
+    //    private String namesrvAddr = System.getProperty(MixAll.NAMESRV_ADDR_PROPERTY, System.getenv(MixAll.NAMESRV_ADDR_ENV));
     @ImportantField
     private String brokerIP1 = RemotingUtil.getLocalAddress();
     private String brokerIP2 = RemotingUtil.getLocalAddress();
@@ -287,7 +293,7 @@ public class BrokerConfig {
     }
 
     public void setAutoCreateTopicEnable(boolean autoCreateTopic) {
-        this.autoCreateTopicEnable = autoCreateTopic;
+        autoCreateTopicEnable = autoCreateTopic;
     }
 
     public String getBrokerClusterName() {
